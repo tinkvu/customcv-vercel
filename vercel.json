@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "includeFiles": ["api/**", "frontend/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/upload|/customize|/generate",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ]
+}
