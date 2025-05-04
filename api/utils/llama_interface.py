@@ -1,9 +1,13 @@
+import os
 import requests
 
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_API_KEY = "your_groq_api_key_here"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")  # Securely fetch from env
 
 def call_llama(cv_text: str, job_role: str, job_desc: str):
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY environment variable is not set.")
+
     prompt = f"""
 You are a professional CV editor. Here's the original CV:
 {cv_text}
