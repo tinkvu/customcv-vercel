@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Custom CV</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans p-6">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">The Custom CV</h1>
+
+    <!-- Upload CV -->
+    <form id="upload-form" class="mb-4">
+      <label class="block mb-1 font-medium">Upload your CV (PDF or DOCX)</label>
+      <input type="file" id="cv-file" accept=".pdf,.docx" class="mb-2">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Upload</button>
+    </form>
+
+    <!-- Job Info -->
+    <div class="mb-4">
+      <label class="block mb-1 font-medium">Job Role</label>
+      <input type="text" id="job-role" class="w-full border px-2 py-1 rounded" />
+
+      <label class="block mt-2 mb-1 font-medium">Job Description</label>
+      <textarea id="job-desc" class="w-full border px-2 py-1 rounded" rows="4"></textarea>
+    </div>
+
+    <button id="customize-btn" class="bg-green-600 text-white px-4 py-2 rounded">Customize CV</button>
+
+    <!-- JSON Editor -->
+    <div id="editor" class="mt-6 hidden">
+      <h2 class="text-xl font-bold mb-2">Edit Customized CV</h2>
+      <div id="json-editor" class="space-y-4"></div>
+      <button id="download-btn" class="bg-purple-600 text-white px-4 py-2 rounded mt-4">Download PDF</button>
+    </div>
+  </div>
+</body>
+</html>
